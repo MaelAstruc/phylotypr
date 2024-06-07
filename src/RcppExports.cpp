@@ -10,22 +10,50 @@ Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
 Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 #endif
 
-// calculate_log_probability
-NumericMatrix calculate_log_probability(const NumericMatrix& kmer_genus_count, const NumericVector& word_specific_priors, const NumericVector& genus_counts);
-RcppExport SEXP _phylotypr_calculate_log_probability(SEXP kmer_genus_countSEXP, SEXP word_specific_priorsSEXP, SEXP genus_countsSEXP) {
+// calculate_log_probability_cpp
+NumericMatrix calculate_log_probability_cpp(const NumericMatrix& kmer_genus_count, const NumericVector& word_specific_priors, const NumericVector& genus_counts);
+RcppExport SEXP _phylotypr_calculate_log_probability_cpp(SEXP kmer_genus_countSEXP, SEXP word_specific_priorsSEXP, SEXP genus_countsSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< const NumericMatrix& >::type kmer_genus_count(kmer_genus_countSEXP);
     Rcpp::traits::input_parameter< const NumericVector& >::type word_specific_priors(word_specific_priorsSEXP);
     Rcpp::traits::input_parameter< const NumericVector& >::type genus_counts(genus_countsSEXP);
-    rcpp_result_gen = Rcpp::wrap(calculate_log_probability(kmer_genus_count, word_specific_priors, genus_counts));
+    rcpp_result_gen = Rcpp::wrap(calculate_log_probability_cpp(kmer_genus_count, word_specific_priors, genus_counts));
+    return rcpp_result_gen;
+END_RCPP
+}
+// calculate_log_probability_cpp2
+NumericMatrix calculate_log_probability_cpp2(const NumericMatrix& kmer_genus_count, const NumericVector& word_specific_priors, const NumericVector& genus_counts);
+RcppExport SEXP _phylotypr_calculate_log_probability_cpp2(SEXP kmer_genus_countSEXP, SEXP word_specific_priorsSEXP, SEXP genus_countsSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< const NumericMatrix& >::type kmer_genus_count(kmer_genus_countSEXP);
+    Rcpp::traits::input_parameter< const NumericVector& >::type word_specific_priors(word_specific_priorsSEXP);
+    Rcpp::traits::input_parameter< const NumericVector& >::type genus_counts(genus_countsSEXP);
+    rcpp_result_gen = Rcpp::wrap(calculate_log_probability_cpp2(kmer_genus_count, word_specific_priors, genus_counts));
+    return rcpp_result_gen;
+END_RCPP
+}
+// calculate_log_probability_cpp3
+NumericMatrix calculate_log_probability_cpp3(const NumericMatrix& kmer_genus_count, const NumericVector& word_specific_priors, const NumericVector& genus_counts);
+RcppExport SEXP _phylotypr_calculate_log_probability_cpp3(SEXP kmer_genus_countSEXP, SEXP word_specific_priorsSEXP, SEXP genus_countsSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< const NumericMatrix& >::type kmer_genus_count(kmer_genus_countSEXP);
+    Rcpp::traits::input_parameter< const NumericVector& >::type word_specific_priors(word_specific_priorsSEXP);
+    Rcpp::traits::input_parameter< const NumericVector& >::type genus_counts(genus_countsSEXP);
+    rcpp_result_gen = Rcpp::wrap(calculate_log_probability_cpp3(kmer_genus_count, word_specific_priors, genus_counts));
     return rcpp_result_gen;
 END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_phylotypr_calculate_log_probability", (DL_FUNC) &_phylotypr_calculate_log_probability, 3},
+    {"_phylotypr_calculate_log_probability_cpp", (DL_FUNC) &_phylotypr_calculate_log_probability_cpp, 3},
+    {"_phylotypr_calculate_log_probability_cpp2", (DL_FUNC) &_phylotypr_calculate_log_probability_cpp2, 3},
+    {"_phylotypr_calculate_log_probability_cpp3", (DL_FUNC) &_phylotypr_calculate_log_probability_cpp3, 3},
     {NULL, NULL, 0}
 };
 

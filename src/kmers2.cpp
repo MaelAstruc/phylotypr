@@ -1,11 +1,14 @@
 #include <Rcpp.h>
+#include <omp.h>
 
 using namespace Rcpp;
 
+// [[Rcpp:plugins(openmp)]]
+
 // [[Rcpp::export]]
-NumericMatrix calculate_log_probability_cpp(const NumericMatrix& kmer_genus_count,
-                                            const NumericVector& word_specific_priors,
-                                            const NumericVector& genus_counts){
+NumericMatrix calculate_log_probability_cpp2(const NumericMatrix& kmer_genus_count,
+                                             const NumericVector& word_specific_priors,
+                                             const NumericVector& genus_counts){
 
   int n_kmers = kmer_genus_count.rows();
   int n_genera = kmer_genus_count.cols();
@@ -14,6 +17,7 @@ NumericMatrix calculate_log_probability_cpp(const NumericMatrix& kmer_genus_coun
 
   // log((kmer_genus_count + word_specific_priors) / (genus_counts + 1)
 
+  #pragma omp parallel for
   for(int j = 0; j<n_genera; j++){
     int genus_counts_p1 = genus_counts[j] + 1;
 
